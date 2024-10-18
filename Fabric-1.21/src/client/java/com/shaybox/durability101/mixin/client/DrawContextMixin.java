@@ -74,11 +74,14 @@ public abstract class DrawContextMixin {
     @Unique
     public String format(float number) {
         DecimalFormat decimalFormat = new DecimalFormat("0.#");
-
-        if (number >= 1000000000) return decimalFormat.format(number / 1000000000) + "b";
-        if (number >= 1000000) return decimalFormat.format(number / 1000000) + "m";
-        if (number >= 1000) return decimalFormat.format(number / 1000) + "k";
-
-        return Float.toString(number).replaceAll("\\.?0*$", "");
+        String shorten = "", longen;
+        if (number >= 1000000000) shorten = decimalFormat.format(number / 1000000000) + "b";
+        if (number >= 1000000) shorten = decimalFormat.format(number / 1000000) + "m";
+        if (number >= 1000) shorten = decimalFormat.format(number / 1000) + "k";
+        longen = Float.toString(number).replaceAll("\\.?0*$", "");
+        if (shorten.length() < longen.length())
+            return shorten;
+        else
+            return longen;
     }
 }
