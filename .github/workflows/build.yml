@@ -100,7 +100,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && false
     needs: build
 
     steps:
