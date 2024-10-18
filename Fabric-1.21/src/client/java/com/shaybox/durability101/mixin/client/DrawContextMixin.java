@@ -79,7 +79,7 @@ public abstract class DrawContextMixin {
         if (number >= 1000000) shorten = decimalFormat.format(number / 1000000) + "m";
         if (number >= 1000) shorten = decimalFormat.format(number / 1000) + "k";
         longen = Float.toString(number).replaceAll("\\.?0*$", "");
-        if (shorten.length() < longen.length())
+        if (shorten.length() < longen.length() && number > 100000)
             return shorten;
         else
             return longen;
