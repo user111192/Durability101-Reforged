@@ -79,7 +79,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           # Artifact name
-          name: Mod File (${{ matrix.minecraft }} / ${{ matrix.loader }})
+          name: Mod File (${{ matrix.minecraft }} ${{ matrix.loader }})
           # A file, directory or wildcard pattern that describes what to upload
           path: ${{ matrix.loader }}-${{ matrix.minecraft }}/build/libs
           # The desired behavior if no files are found using the provided path.
@@ -89,7 +89,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           # Artifact name
-          name: Resource File (${{ matrix.minecraft }})
+          name: Resource File (${{ matrix.minecraft }} ${{ matrix.loader }})
           # A file, directory or wildcard pattern that describes what to upload
           path: ${{ matrix.loader }}-${{ matrix.minecraft }}/build/resources
           # The desired behavior if no files are found using the provided path.
