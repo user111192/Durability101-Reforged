@@ -22,6 +22,8 @@ jobs:
             minecraft: 1.13
           - loader: Forge
             minecraft: 1.21
+          - loader: Fabric
+            minecraft: 1.19.2
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -44,9 +46,7 @@ jobs:
           # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
           # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
       - name: Change working directory
-        run: |
-          ls
-          cd ${{ matrix.loader }}-${{ matrix.minecraft }}
+        run: ls
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@dbbdc275be76ac10734476cc723d82dfe7ec6eda # v3.4.2
 
@@ -60,7 +60,8 @@ jobs:
       - name: Build with Gradle Wrapper
         run: |
           NOW=$(date '+%Y-%m-%d-%H.%M')
-          ./${{ matrix.loader }}-${{ matrix.minecraft }}/gradlew build --scan
+          cd ${{ matrix.loader }}-${{ matrix.minecraft }}
+          ./gradlew build --scan
 
       # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
       # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
