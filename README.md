@@ -10,8 +10,10 @@
   </a>
 </div>
 
-# Durability101
+# Durability101-Reforged
 [A rewrite of the original Durability101 mod](https://minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1285383-1-6-2-jul-13-durability101-hotbar-visible-use)
+
+[![Java CI with Gradle](https://github.com/user111192/Durability101-Reforged/actions/workflows/build.yml/badge.svg)](https://github.com/user111192/Durability101-Reforged/actions/workflows/build.yml)
 
 ![Screenshot](https://i.imgur.com/Le7cALn.png)
 
